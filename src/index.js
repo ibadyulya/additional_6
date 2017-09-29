@@ -28,9 +28,12 @@ module.exports = function zeros(expression)
     {
         if(dblFactr[i] % 2)
         {
-            zerosCount += Math.ceil(parseInt(dblFactr[i]/5)/2);
-            zerosCount += Math.ceil(parseInt(dblFactr[i]/25)/2);
-           
+            power = ~~getBaseLog(5, dblFactr[i]);
+            while (power > 0) 
+            {
+                zerosCount += Math.ceil(parseInt(dblFactr[i]/Math.pow(5,power))/2);
+                power--;
+            }    
         }
         else
         {  
